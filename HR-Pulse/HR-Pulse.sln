@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR-Pulse", "HR-Pulse\HR-Pulse.csproj", "{C78CB5E5-8E76-479B-866A-79C53F1AFFFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C78CB5E5-8E76-479B-866A-79C53F1AFFFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C78CB5E5-8E76-479B-866A-79C53F1AFFFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C78CB5E5-8E76-479B-866A-79C53F1AFFFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C78CB5E5-8E76-479B-866A-79C53F1AFFFB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11460556-14E7-449E-869F-CF543174946D}
+	EndGlobalSection
+EndGlobal
