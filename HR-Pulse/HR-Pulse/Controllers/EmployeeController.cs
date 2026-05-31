@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace HR_Pulse.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class EmployeeController : ControllerBase
     {
         private readonly HrPulseDbContext _context;
