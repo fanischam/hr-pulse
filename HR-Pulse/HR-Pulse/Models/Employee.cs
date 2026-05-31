@@ -1,7 +1,10 @@
-﻿namespace HR_Pulse.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace HR_Pulse.Models
 {
     public class Employee
     {
+        [Key]
         public Guid Guid { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

@@ -1,5 +1,7 @@
-﻿using HR_Pulse.Models;
+﻿using HR_Pulse.Data;
+using HR_Pulse.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace HR_Pulse.Controllers
 {
@@ -7,67 +9,25 @@ namespace HR_Pulse.Controllers
     [Route("[controller]")]
     public class EmployeeController : ControllerBase
     {
+        private readonly HrPulseDbContext _context;
         private readonly ILogger<EmployeeController> _logger;
-        private static readonly List<Employee> employees = new List<Employee>
-        {
-            new() {
-                Guid = Guid.NewGuid(),
-                FirstName = "Alice",
-                LastName = "Johnson",
-                Email = "alice.johnson@example.com",
-                Password = "Password123!",
-                Phone = "555-123-4567",
-                Title = "Software Engineer",
-                Address = "123 Main St",
-                City = "Springfield",
-                State = "IL",
-                ZipCode = "62701"
-            },
-            new()
-            {
-                Guid = Guid.NewGuid(),
-                FirstName = "Bob",
-                LastName = "Smith",
-                Email = "bob.smith@example.com",
-                Password = "SecurePass456!",
-                Phone = "555-987-6543",
-                Title = "HR Manager",
-                Address = "456 Elm St",
-                City = "Springfield",
-                State = "IL",
-                ZipCode = "62702"
-            },
-            new()
-            {
-                Guid = Guid.NewGuid(),
-                FirstName = "Carol",
-                LastName = "Williams",
-                Email = "carol.williams@example.com",
-                Password = "MyPass789!",
-                Phone = "555-555-1212",
-                Title = "Accountant",
-                Address = "789 Oak St",
-                City = "Springfield",
-                State = "IL",
-                ZipCode = "62703"
-            }
-        };
 
-        public EmployeeController(ILogger<EmployeeController> logger)
+        public EmployeeController(ILogger<EmployeeController> logger, HrPulseDbContext context)
         {
+            _context = context;
             _logger = logger;
         }
 
         [HttpGet(Name = "GetEmployee")]
-        public IEnumerable<Employee> Get()
+        public async Task<IEnumerable<Employee>> Get()
         {
-            return employees;
+            return await _context.Employees.ToListAsync();
         }
 
         [HttpGet("{id}", Name = "GetEmployeeById")]
         public ActionResult<Employee> GetById(Guid id)
         {
-            var employee = employees.FirstOrDefault(emp => emp.Guid == id);
+            var employee = _context.Employees.FirstOrDefault(emp => emp.Guid == id);
             if (employee == null)
             {
                 return NotFound();
